@@ -1,0 +1,26 @@
+:root { 
+    --body-bg: #25282F;
+    --body-color: #fff;
+
+    --color-primary: #873F3C;
+    --color-secondary: #C68F36;
+
+    --font-family-base: "Open Sans", sans-serif;
+}
+
+body {
+    background-color: var(--body-bg);
+    color: var(--body-color);
+    font-family: var(--font-family-base);
+}
+
+.container {
+    width: 75%;
+    margin: 0 auto;
+}
+
+.block-title {
+    text-align: center;
+    padding: 1rem;
+    font-weight: 700;
+}

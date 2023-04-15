@@ -1,0 +1,18 @@
+{
+    "result": [
+      {
+        "id": 1,
+        "title": "Lasagnes",
+        "tag": [ "allSeasons", "mediumTime"],
+        "time": "20min",
+        "ingredient": ["Pâtes", "sauce tomate", "viande hachée"]
+      },
+      {
+        "id": 2,
+        "title": "Tarte aux poireaux",
+        "tag": [ "hiverSeasons", "fastTime"],
+        "time": "15min",
+        "ingredient": ["Pates", "Poireaux", "Crème fraiche", "Oeufs"]
+      }
+    ]
+  }

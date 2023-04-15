@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>Titre de la page</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,300" rel="stylesheet" type="text/css">
+  <script src="script.js"></script>
+</head>
+<body>
+    <header class="container">
+        <h1 class="block-title">Recette</h1>
+        <!-- <button onclick="showList()">Show List</button> -->
+    </header>
+
+    
+    <main class="container">
+        <article>
+            <h2>Lasagnes</h2>
+        </article>
+    </main>
+
+    <script>
+
+fetch("./article.json")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  })
+
+// function showList(){
+//     fetch("article.json")
+//       .then(response => response.json())
+//       .then(data => createArticle(data));
+//   }
+
+//   function createArticle(data) {
+//     for (let i = 0; i < data.result.length; i++) {
+//         console.log('hello');
+//     }
+//   }
+
+//         fetch("https://jsonplaceholder.typicode.com/users")
+//   .then(function (response) {
+//     return response.json();
+//   })
+//   .then(function (data) {
+//     for (let i = 0; i < data.length; i++) {
+//       console.log(data[i]);
+//     }
+//   })
+  
+//         var output = document.getElementById("output");
+//         fetch('./lib/examples/employee.json')
+//           .then(response => response.json())
+//           .then(data => {
+//             output.innerHTML += data.employee.name + "<br>";
+//             output.innerHTML += data.employee.age + "<br>";
+//             output.innerHTML += data.employee.salary;
+//           })
+      </script>
+</body>
+</html>
