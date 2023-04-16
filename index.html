@@ -10,56 +10,73 @@
 <body>
     <header class="container">
         <h1 class="block-title">Recette</h1>
-        <!-- <button onclick="showList()">Show List</button> -->
+        <button id="pushArray">Push</button>
     </header>
 
     
-    <main class="container">
-        <article>
-            <h2>Lasagnes</h2>
-        </article>
+    <main id="article-grid" class="container">
+        <!-- article list content -->
     </main>
 
     <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            // variables
+            let jsonObj = "https://raw.githubusercontent.com/TytyJenkins/recette/main/article.json";
+            let jsonTest ="";
+            const articleContainer = document.getElementById('article-grid');
+            const button = document.getElementById('pushArray');
+            let articleItem = "";
 
-fetch("./article.json")
-  .then(function (response) {
-    return response.json();
-  })
-  .then(function (data) {
-    console.log(data);
-  })
+            // generate html
+            function cardRecipe(i) {
+                articleItem = `
+                    <p>Salut ${i.title}</p>
+                `
+                return articleItem;
+            }
 
-// function showList(){
-//     fetch("article.json")
-//       .then(response => response.json())
-//       .then(data => createArticle(data));
-//   }
+            // functions
+            function showList(){
+                fetch(jsonObj)
+                .then(response => response.json())
+                .then(data => createArticle(data));
+            }
 
-//   function createArticle(data) {
-//     for (let i = 0; i < data.result.length; i++) {
-//         console.log('hello');
-//     }
-//   }
+            function createArticle(data) {
+                for (let i = 0; i < data.result.length; i++) {
+                    let dataI = data.result[i];
+                    articleContainer.innerHTML += cardRecipe(dataI);
+                }
+            }
 
-//         fetch("https://jsonplaceholder.typicode.com/users")
-//   .then(function (response) {
-//     return response.json();
-//   })
-//   .then(function (data) {
-//     for (let i = 0; i < data.length; i++) {
-//       console.log(data[i]);
-//     }
-//   })
-  
-//         var output = document.getElementById("output");
-//         fetch('./lib/examples/employee.json')
-//           .then(response => response.json())
-//           .then(data => {
-//             output.innerHTML += data.employee.name + "<br>";
-//             output.innerHTML += data.employee.age + "<br>";
-//             output.innerHTML += data.employee.salary;
-//           })
+            function addNewArticle() {
+                // const title = "boeuf";
+                // const tag = ["allSeason", "longTime"];
+                // const time = "1h";
+                // const ingredient = ["viande", "carottes"];
+
+                // for(i=0; i <= 2; i++) {
+                //     let newRecipe = 
+                //         {
+                //             "id": i,
+                //             "title": title,
+                //             "tag": tag,
+                //             "time": time,
+                //             "ingredient": ingredient
+                //         }
+                    
+                //     jsonObj.result[i] = newRecipe;
+                // }
+
+                console.log(jsonObj.result);
+            }
+
+            // events
+            showList();
+
+            button.addEventListener('click', addNewArticle);
+
+        });
       </script>
 </body>
 </html>
